@@ -1,0 +1,43 @@
+<h1>Listing recording devices</h1>
+
+<%= link_to 'Refresh', pies_path %>
+<br>
+<%= link_to 'New device', new_py_path %>
+<br>
+
+<br>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Notes</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Noise Level</th>
+        <th>Update Time</th>
+        <th colspan="3"></th>
+    </tr>
+    
+    <% @pies.each do |py| %>
+        <tr>
+          <td><%= py.identifier %></td>
+          <td><%= py.notes %></td>
+          <td><%= py.lat %></td>
+          <td><%= py.lon %></td>
+          <td><%= py.dblvl %></td>
+          <td><%= py.devicetime %></td>
+          <td><%= link_to 'Show', py_path(py) %></td>
+          <td><%= link_to 'Edit', edit_py_path(py) %></td>
+          <td><%= link_to 'Destroy', py_path(py),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+          <td><iframe
+                width="300"
+                height="200"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyADBrHDk2telNSBAdKCOTunANdjzQUbTYQ
+                &q=<%= py.lat %>,<%= py.lon %>">
+</iframe>
+          </td>
+        </tr>
+    <% end %>
+</table>

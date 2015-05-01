@@ -1,0 +1,32 @@
+<%= form_for  @py  do |f| %>
+ 
+  <% if @py.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@py.errors.count, "error") %> prohibited
+        this recorder from being saved:
+      </h2>
+      <ul>
+        <% @py.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :identifier %><br>
+    <%= f.text_field :identifier %>
+  </p>
+ 
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+/

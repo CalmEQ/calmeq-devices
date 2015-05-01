@@ -1,0 +1,107 @@
+random set of notes based on the problem at hand....
+
+workflow:
+
+device wakes up and contacts the webserver with the following pieces of information:
+  - mac address
+  - its local ip address
+  - the computer name
+  - the user
+  - the current date
+  - location (from gps)
+  - microphone type
+  - equipment type
+  - its global ip address (from server itself)
+  - calmr software version...
+  
+
+all that is pushed from the device as part of a curl call.
+(or series of curl calls)
+
+then the device is registered on the site and shown on the web page
+
+from the web page you can set 
+ - the device wifi sid and passcode 
+ - the device name (on our site)
+ 
+ the device will ping every minute looking for the folling information
+ - update to the wifi sid and passcode
+ - ip address to open an ssh tunnel to
+ 
+the device will push every minute the following information
+ - status on the wifi connection
+ - location
+ - current noise level
+ - mac address (unique identifier)
+ 
+ this handoff between device and webpage needs to be managed a bit, to ensure the upload is successful.
+ something like, push to site, confirm it is on the page, then mark as done
+ 
+
+
+lets worry about live updating first
+
+every 5 second push the following information to the database
+ - mac address
+ - location (gps)
+ - current time
+ - noise level 
+
+# mac address
+/sys/class/net/eth0/address
+
+# need to correct sys.init with the following setup
+sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
+
+# reconfigure the gps by running:
+sudo dpkg-reconfigure gpsd
+
+#latitude
+tail -n 30 gpstrack.xml  | grep '<trkpt' | tail -n 1 | sed 's:.*lat="\([0-9.]*\)".*:\1:g'
+
+#longitude
+tail -n 30 gpstrack.xml  | grep '<trkpt' | tail -n 1 | sed 's:.*lon="\([0-9.]*\)".*:\1:g'
+
+# todo: add in xml parsing and loading, so we can just push the whole trackpoint to the app
+
+# time
+TZ='America/Los_Angeles'; export TZ
+T=$( date +%Y%m%dT%H%M%S%Z )
+date
+
+# noise level
+amixer -D hw:1 sset Mic Capture Volume 40
+arecord -d 1 -D hw:1 -f S16_LE -r 44100 -t raw | python rawaudio2rms.py
+
+push the mac address, lat, lon, noise, datetime
+curl myaddress?mac=,
+
+mac address is identifier
+
+add the following fields
+lat :double
+lon :double
+dblvl :double
+devicetime :datetime
+
+# Script to update the website
+MAC=$( cat /sys/class/net/eth0/address )
+LAT=$( tail -n 30 gpstrack.xml  | grep '<trkpt' | tail -n 1 | sed 's:.*lat="\([-0-9.]*\)".*:\1:g' )
+LON=$( tail -n 30 gpstrack.xml  | grep '<trkpt' | tail -n 1 | sed 's:.*lon="\([-0-9.]*\)".*:\1:g' )
+NOW=$( date )
+DBLVL=$( arecord -d 1 -D hw:1 -f S16_LE -r 44100 -t raw | python rawaudio2rms.py )
+ID=12
+
+curl -X PATCH -d "py[lat]=$LAT" -d "py[identifier]=$MAC"  -d "py[lon]=$LON" \
+-d "py[dblvl]=$DBLVL" -d "py[devicetime]=$NOW"  \
+http://calmr-devices-alpharigel.c9.io/pies/$ID
+
+
+
+
+
+
+
+
+
+
