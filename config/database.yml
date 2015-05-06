@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: default
+  #encoding: default
   #encoding: sql_ascii
   pool: 5
  # username: postgres
