@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# specify the version of ruby
+ruby "2.1.5"
