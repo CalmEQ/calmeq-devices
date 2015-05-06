@@ -99,6 +99,24 @@ http://calmr-devices-alpharigel.c9.io/pies/$ID
 
 
 
+# migrate to psql
+# http://railscasts.com/episodes/342-migrating-to-postgresql?view=asciicast
+# https://docs.c9.io/v1.0/docs/setting-up-postgresql
+modify Gemfile to use psql
+modify database.yml to use encoding sql_ascii, new database names, and adapter postgresql
+bundle install
+sudo service postgresql start
+sudo sudo -u postgres psql
+
+# create ubuntu role (so we dont need to sudo to postgres user)
+sudo sudo -u postgres psql
+create role ubuntu with login inherit in role postgres 
+\q
+
+# migrate - this will blow away previous data, but not a big deal at all
+rake db:create:all
+rake db:setup
+rake db:migrate
 
 
 
