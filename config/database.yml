@@ -8,6 +8,8 @@ default: &default
   adapter: postgresql
   #encoding: default
   #encoding: sql_ascii
+  encoding: utf8
+  template: template0
   pool: 5
  # username: postgres
 #  password: palomino

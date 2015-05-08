@@ -1,4 +1,7 @@
 class PiesController < ApplicationController
+  # this should be replaced with a proper token system for each device soon.
+  # something like 
+  skip_before_action :verify_authenticity_token
 #  skip_before_filter :verify_authenticity_token  
 
   def index
