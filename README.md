@@ -6,6 +6,7 @@
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
     ----------------------------------------------------------------- 
 
+[![Circle CI](https://circleci.com/gh/CalmEQ/calmeq-devices.svg?style=shield)](https://circleci.com/gh/CalmEQ/calmeq-devices)
 
 Welcome to your Rails project on Cloud9 IDE!
 
