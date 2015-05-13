@@ -1,0 +1,20 @@
+<p>
+    <strong>Id:</strong>
+    <%= @py.identifier %>
+</p>
+
+<p>
+    <strong>Lat/Lon:</strong>
+    <%= @reading.lat %> / <%= @reading.lon %>
+</p>
+
+<p>
+    <strong>DBLevel:</strong>
+    <%= @reading.dblvl %>
+</p>
+<p>
+    <strong>Datetime:</strong>
+    <%= @reading.devicetime %>
+</p>
+
+<%= link_to 'Back', py_path %>

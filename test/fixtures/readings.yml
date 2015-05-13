@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  py: two_py
+  dblvl: 1.5
+  lat: 1.5
+  lon: 1.5
+  devicetime: 2015-05-12 05:51:59
+
+two:
+  py: two_py
+  dblvl: 1.5
+  lat: 1.5
+  lon: 1.5
+  devicetime: 2015-05-12 05:51:59

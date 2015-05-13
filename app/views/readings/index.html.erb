@@ -1,34 +1,39 @@
-<p>
-    <strong>Id:</strong>
-    <%= @py.identifier %>
-</p>
+<h1>Listing recording devices</h1>
+
+<%= link_to 'Refresh', reading_path %>
 <br>
+
 <iframe
                 width="300"
                 height="200"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyADBrHDk2telNSBAdKCOTunANdjzQUbTYQ
-                &q=<%= @py.readings.last.lat %>,<%= @py.readings.last.lon %>">
+                &q=<%= readings(:last).lat %>,<%= readings(:last).lon %>">
 </iframe>
 <br>
 <table>
     <tr>
+        <th>Id</th>
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Noise Level</th>
         <th>Update Time</th>
+        <th colspan="3"></th>
     </tr>
     
-    <% @py.readings.each do |reading| %>
+    <% @readings.each do |reading| %>
         <tr>
+          <td><%= reading.py.identifier %></td>
           <td><%= reading.lat %></td>
           <td><%= reading.lon %></td>
           <td><%= reading.dblvl %></td>
           <td><%= reading.devicetime %></td>
+          <td><%= link_to 'Show', reading_path(py) %></td>
+          <td><%= link_to 'Destroy', py_path(py),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+          <td>
           </td>
         </tr>
     <% end %>
 </table>
-
-<%= link_to 'Edit', edit_py_path(@py) %> |
-<%= link_to 'Back', pies_path %>

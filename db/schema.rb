@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428063019) do
+ActiveRecord::Schema.define(version: 20150512055159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,5 +26,17 @@ ActiveRecord::Schema.define(version: 20150428063019) do
     t.float    "dblvl"
     t.datetime "devicetime"
   end
+
+  create_table "readings", force: true do |t|
+    t.integer  "py_id"
+    t.float    "dblvl"
+    t.float    "lat"
+    t.float    "lon"
+    t.datetime "devicetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "readings", ["py_id"], name: "index_readings_on_py_id", using: :btree
 
 end

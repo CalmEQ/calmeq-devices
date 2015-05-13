@@ -21,10 +21,10 @@
         <tr>
           <td><%= py.identifier %></td>
           <td><%= py.notes %></td>
-          <td><%= py.lat %></td>
-          <td><%= py.lon %></td>
-          <td><%= py.dblvl %></td>
-          <td><%= py.devicetime %></td>
+          <td><%= py.readings.empty? ? py.lat : py.readings.last.lat %></td>
+          <td><%= py.readings.empty? ? py.lon : py.readings.last.lon %></td>
+          <td><%= py.readings.empty? ? py.dblvl : py.readings.last.dblvl %></td>
+          <td><%= py.readings.empty? ? py.devicetime : py.readings.last.devicetime %></td>
           <td><%= link_to 'Show', py_path(py) %></td>
           <td><%= link_to 'Edit', edit_py_path(py) %></td>
           <td><%= link_to 'Destroy', py_path(py),
@@ -35,7 +35,7 @@
                 height="200"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyADBrHDk2telNSBAdKCOTunANdjzQUbTYQ
-                &q=<%= py.lat %>,<%= py.lon %>">
+                &q=<%= py.readings.empty? ? py.lat : py.readings.last.lat %>,<%= py.readings.empty? ? py.lon : py.readings.last.lon %>">
 </iframe>
           </td>
         </tr>
