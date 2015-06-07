@@ -118,8 +118,11 @@ rake db:create:all
 rake db:setup
 rake db:migrate
 
+ok, need two CI machines to test the build each time.
+first machine stays up-to-date, and just pulls the latest code, and runs the update.sh command.
 
-
+second machine is wipped back to noobs (or rasbian) and then run the initialize.sh command.
+ 
 
 
 
