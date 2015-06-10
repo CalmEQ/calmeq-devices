@@ -1,16 +1,8 @@
 <h1>Listing recording devices</h1>
 
-<%= link_to 'Refresh', reading_path %>
+<%= link_to 'Refresh', py_readings_path(@readings.last.py) %>
 <br>
 
-<iframe
-                width="300"
-                height="200"
-                frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyADBrHDk2telNSBAdKCOTunANdjzQUbTYQ
-                &q=<%= readings(:last).lat %>,<%= readings(:last).lon %>">
-</iframe>
-<br>
 <table>
     <tr>
         <th>Id</th>
@@ -28,8 +20,8 @@
           <td><%= reading.lon %></td>
           <td><%= reading.dblvl %></td>
           <td><%= reading.devicetime %></td>
-          <td><%= link_to 'Show', reading_path(py) %></td>
-          <td><%= link_to 'Destroy', py_path(py),
+          <td><%= link_to 'Show', py_reading_path(reading.py, reading) %></td>
+          <td><%= link_to 'Destroy', py_reading_path(reading.py, reading),
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
           <td>

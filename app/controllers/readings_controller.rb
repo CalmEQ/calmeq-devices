@@ -13,7 +13,7 @@ class ReadingsController < ApplicationController
   def create
     @py = Py.find(params[:py_id])
     @reading = @py.readings.create(reading_params)
-    redirect_to py_path(@py)
+    redirect_to py_reading_path(@py, @reading)
   end
  
   private

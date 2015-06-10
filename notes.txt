@@ -124,5 +124,28 @@ first machine stays up-to-date, and just pulls the latest code, and runs the upd
 second machine is wipped back to noobs (or rasbian) and then run the initialize.sh command.
  
 
+# not sure why this worked, but setting up fourpi as the qa serer.
+http://raspberrypi.stackexchange.com/questions/14101/connect-network-is-unreachable-on-a-working-wlan0-connected-interface
+sudo route add default gw 192.168.1.1
+
+so yea.....
+
+ok, ngrok
+
+setup fourpi as the local ci host. it always just stays up-to-date
+
+given a ci ping:
+1) pull down the latest package
+2) run the init script
+3) run the pingme.sh script
+4) assert sucess
+5) (on server side) confirm pingme did the "right" thing.
+
+
+
+wget https://dl.ngrok.com/ngrok_2.0.19_linux_arm.zip
+unzip ngrok_2.0.19_linux_arm.zip 
+
+
 
 
