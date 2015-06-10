@@ -14,7 +14,7 @@ class ReadingsControllerTest < ActionController::TestCase
   
   test "create a reading" do
     assert_difference('Reading.count') do
-      post :create, py_id: @reading.py_id, reading: {id: "testreading2", lat: 201, lon: 10, dblvl: 23.42  };
+      post :create, py_id: @reading.py_id, reading: {id: "testreading2", lat: 201, lon: 10, dblvl: 23.42, identifier: "newmacaddress" };
     end
     @newreading = Reading.find_by( dblvl: 23.42 )
     @py = Py.find(@newreading.py_id)
