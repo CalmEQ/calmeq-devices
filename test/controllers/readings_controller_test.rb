@@ -16,8 +16,9 @@ class ReadingsControllerTest < ActionController::TestCase
     assert_difference('Reading.count') do
       post :create, py_id: @reading.py_id, reading: {id: "testreading2", lat: 201, lon: 10, dblvl: 23.42  };
     end
+    @newreading = Reading.find_by( dblvl: 23.42 )
     
-    assert_redirected_to py_path( @reading.py_id )
+    assert_redirected_to py_reading_path(@reading.py_id, @newreading)
   end
   
   
