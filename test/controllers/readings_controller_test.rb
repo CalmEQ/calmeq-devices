@@ -17,8 +17,9 @@ class ReadingsControllerTest < ActionController::TestCase
       post :create, py_id: @reading.py_id, reading: {id: "testreading2", lat: 201, lon: 10, dblvl: 23.42  };
     end
     @newreading = Reading.find_by( dblvl: 23.42 )
+    @py = Py.find(@newreading.py_id)
     
-    assert_redirected_to py_reading_path(@reading.py_id, @newreading)
+    assert_redirected_to py_reading_path(@py, @newreading)
   end
   
   

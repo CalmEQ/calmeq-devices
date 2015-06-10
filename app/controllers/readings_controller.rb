@@ -7,7 +7,7 @@ class ReadingsController < ApplicationController
 
   def show
     @reading = Reading.find(params[:id])
-    @py = Py.find(@reading.identifier)
+    @py = Py.find(@reading.py_id)
   end
   
   def create
