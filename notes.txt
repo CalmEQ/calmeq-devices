@@ -148,4 +148,18 @@ unzip ngrok_2.0.19_linux_arm.zip
 
 
 
+# few additional notes.
+to get assest (such as the favicon and bootstrap) working on heroku, i needed to
+install the rails12 gem. at some point we should move to puma (need to research
+what exactly puma is), and setup a procfile for heroku to know what to do. right 
+now it looks like the default behavior is working, but need a bit more details.
+https://devcenter.heroku.com/articles/getting-started-with-rails4
+
+
+# Added project badges using badgerbadgerbadger 
+this should do things like code coverage, quality and dependency checking for 
+us, using a modern toolkit. right now setting up gemnasium, and then trying out
+the auto-update feature..
+https://gemnasium.com/CalmEQ/calmeq-devices/settings#auto-update
+
 
