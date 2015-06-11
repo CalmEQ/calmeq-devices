@@ -1,3 +1,5 @@
+# copied from https://github.com/github/gitignore/blob/master/Rails.gitignore 
+
 *.rbc
 capybara-*.html
 .rspec
@@ -33,3 +35,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# ignore spring pid tracking -jfd
+/spring/*.pid
