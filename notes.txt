@@ -147,6 +147,10 @@ wget https://dl.ngrok.com/ngrok_2.0.19_linux_arm.zip
 unzip ngrok_2.0.19_linux_arm.zip 
 
 
+# setting up bootstrap with rails12
+https://github.com/twbs/bootstrap-sass
+this was fairly painless
+
 
 # few additional notes.
 to get assest (such as the favicon and bootstrap) working on heroku, i needed to
@@ -161,5 +165,6 @@ this should do things like code coverage, quality and dependency checking for
 us, using a modern toolkit. right now setting up gemnasium, and then trying out
 the auto-update feature..
 https://gemnasium.com/CalmEQ/calmeq-devices/settings#auto-update
+
 
 
