@@ -51,3 +51,6 @@ gem 'rails_12factor', group: :production
 
 # specify the version of ruby
 ruby "2.1.5"
+
+# use code climate to check coverage
+gem "codeclimate-test-reporter", group: :test, require: nil
