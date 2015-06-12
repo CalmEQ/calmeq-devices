@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# this file contains the ruby dependecies we have for the project. 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
