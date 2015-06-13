@@ -34,8 +34,13 @@ class PiesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show an edit form" do
+    get :edit, id: @py.id
+    assert_not_nil assigns(:py)
+    assert_response :success
+  end
+
   test "should update device info" do
-    puts 'inside device info'
     patch :update, id: @py.id, py: { notes: "NewNote" }#@py
     assert_equal("NewNote", @py.reload.notes)
     assert_redirected_to py_path(@py)

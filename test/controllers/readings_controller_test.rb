@@ -12,6 +12,12 @@ class ReadingsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:py)
   end
   
+  test "should get an index" do
+    get :index, py_id: @reading.py_id
+    assert_response :success
+    assert_not_nil assigns(:readings)
+  end
+
   test "create a reading" do
     assert_difference('Reading.count') do
       post :create, py_id: @reading.py_id, reading: {id: "testreading2", lat: 201, lon: 10, dblvl: 23.42, identifier: "newmacaddress" };
