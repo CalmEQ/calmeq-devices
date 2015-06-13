@@ -38,8 +38,18 @@ class PiesControllerTest < ActionController::TestCase
     puts 'inside device info'
     patch :update, id: @py.id, py: { notes: "NewNote" }#@py
     assert_equal("NewNote", @py.reload.notes)
+    assert_redirected_to py_path(@py)
   end
   
+  test "should destory a device" do 
+    py_gone = pies(:py_gone)
+    assert_difference('Py.count', -1) do
+      delete :destroy, id: py_gone.id
+    end
+    
+    assert_redirected_to pies_path
+  end
+
   # test "the truth" do
   #   assert true
   # end

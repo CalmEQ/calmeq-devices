@@ -25,8 +25,8 @@ class PiesController < ApplicationController
   
     if @py.save
       redirect_to @py
-    else
-      render 'new'
+    #else - not used because we have no validation on the fields
+    #  render 'new'
     end
   end
    
@@ -35,8 +35,8 @@ class PiesController < ApplicationController
    
     if @py.update(py_params)
       redirect_to @py
-    else
-      render 'edit'
+    #else - not used because we have no validation on the fields
+    #  render 'edit'
     end
   end
     

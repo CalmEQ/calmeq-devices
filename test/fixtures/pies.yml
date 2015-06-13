@@ -7,3 +7,8 @@ one:
 two_py:
   identifier: TestPi2
   notes: MySecondText
+
+py_gone:
+  identifier: TestPi3
+  notes: GoingAway
+  
