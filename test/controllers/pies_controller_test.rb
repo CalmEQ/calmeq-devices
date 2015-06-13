@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'pry'
 
 class PiesControllerTest < ActionController::TestCase
   
@@ -33,11 +34,11 @@ class PiesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-#  test "should update device info" do
-#    assert_equal("NewNote", @py.notes) do
-#      patch :update, py: @py, id: @py.id, notes: "NewNote"
-#    end
-#  end
+  test "should update device info" do
+    puts 'inside device info'
+    patch :update, id: @py.id, py: { notes: "NewNote" }#@py
+    assert_equal("NewNote", @py.reload.notes)
+  end
   
   # test "the truth" do
   #   assert true

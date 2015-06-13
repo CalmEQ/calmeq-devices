@@ -32,9 +32,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-# replacement for the standard shell interpretor, allows easier inline work and debuggine.
-gem 'pry',      group: :development
-
 # loging in heroku
 gem 'le'
 
@@ -60,3 +57,10 @@ ruby "2.1.5"
 gem "codeclimate-test-reporter", group: :test, require: nil
 # test coveralls for same thing
 gem 'coveralls', group: :test, require: false
+
+# replacement for the standard shell interpretor, allows easier inline work and debuggine.
+gem 'pry',      group: [:development, :test]
+# stack explorer
+# gem 'pry-stack_explorer', group: [:development, :test]
+# debugging tool
+gem 'pry-byebug', group: [:development, :test]
