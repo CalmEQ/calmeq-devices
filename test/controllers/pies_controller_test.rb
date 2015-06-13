@@ -28,6 +28,11 @@ class PiesControllerTest < ActionController::TestCase
     assert_redirected_to py_path( assigns(:py) )
   end
 
+  test "should show a new form" do
+    get :new
+    assert_response :success
+  end
+
 #  test "should update device info" do
 #    assert_equal("NewNote", @py.notes) do
 #      patch :update, py: @py, id: @py.id, notes: "NewNote"

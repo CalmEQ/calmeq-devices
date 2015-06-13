@@ -1,11 +1,12 @@
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
+require 'coveralls'
+Coveralls.wear!('rails')
+  
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-
-puts "code climate testing started"
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
