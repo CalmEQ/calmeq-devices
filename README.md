@@ -7,3 +7,5 @@
 [![Badges](http://img.shields.io/:badges-3/3-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
 
 This repo holds the web server information for the calmeq-device management.
+
+Project Copyright 2015 CalmEQ
