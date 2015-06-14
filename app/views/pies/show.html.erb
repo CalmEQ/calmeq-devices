@@ -4,6 +4,7 @@
 </p>
 <br>
 <iframe
+                id="googlemap"
                 width="300"
                 height="200"
                 frameborder="0" style="border:0"
@@ -12,7 +13,7 @@
                 <%= @py.readings.nil? ? @py.readings.last.lon : "" %>">
 </iframe>
 <br>
-<table class="table table-striped">
+<table class="table table-striped" id="reading table">
     <tr>
         <th>Latitude</th>
         <th>Longitude</th>

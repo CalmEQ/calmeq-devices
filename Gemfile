@@ -64,3 +64,15 @@ gem 'pry',      group: [:development, :test]
 # gem 'pry-stack_explorer', group: [:development, :test]
 # debugging tool
 gem 'pry-byebug', group: [:development, :test]
+
+# real world acceptance testing 
+gem 'capybara', group: [:development, :test]
+
+# add this when we want to render javascript
+# gem 'capybara-webkit', group: [:development, :test]
+
+# headless xserver for webkit or seleminum
+# gem 'headless', group: [:development, :test]
+
+# ugg, that didnt work, nor seem very standard... moving to selenium
+gem 'selenium-webdriver'

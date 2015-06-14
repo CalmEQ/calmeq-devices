@@ -38,3 +38,4 @@ bower.json
 
 # ignore spring pid tracking -jfd
 /spring/*.pid
+debug

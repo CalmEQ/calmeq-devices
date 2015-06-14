@@ -168,3 +168,17 @@ https://gemnasium.com/CalmEQ/calmeq-devices/settings#auto-update
 
 
 
+# getting the capybara webserver up is a bit of a hassle, needed the qmake utility
+sudo apt-get install libqt4-dev
+# may go with selemenium in the future to replicate the full user experience
+Xvfb &
+
+# ugg, that didnt work, nor seem very standard... moving to selenium
+
+
+
+# ok looks like thats needed regardless, and we have the webkit working now
+sudo Xvfb :10 -ac &
+export DISPLAY=:10
+firefox &
+
