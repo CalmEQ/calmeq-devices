@@ -52,8 +52,7 @@ class UserFlowTest < ActionDispatch::IntegrationTest
     # follow the device link to an actual page
     onedevicelink.click()
     assert_text( 'Id' )
-    File.open('saved_html.html', 'w') { |file| file.write(page.html) }
-
+    
     # Save sheet for debugging
     # File.open('debug/onedevice.html', 'w') { |file| file.write(page.html) }
     # page.save_screenshot('debug/onedevice.png')
