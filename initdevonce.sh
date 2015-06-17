@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## These are the commands to run with a new environment from cloud9
+# run by . ./initdevonce.sh 
 
 # 1. get the stuff
 bundle install
@@ -20,11 +21,11 @@ rake db:setup
 rake db:migrate
 
 # 6. startup firefox for selenium testing
-sudo Xvfb :10 -ac &
-export DISPLAY=:10
-firefox &
+# sudo Xvfb :10 -ac &
+# export DISPLAY=:10
+# firefox &
 
-# test with rake test, and then run the project
+# 7. test with rake test, and then run the project
 rake test:functionals test:units
 
 
