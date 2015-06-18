@@ -21,11 +21,14 @@ class PiesController < ApplicationController
   end
 
   def create
-    @py = Py.new(py_params)
+    @py = Py.find_or_create_by(identifier: params[:identifier])
+#@py = Py.new(py_params)
   
     if @py.save
-      redirect_to @py
-    #else - not used because we have no validation on the fields
+      render plain: @py.id
+      #redirect_to @py
+    else
+      render plain: 0
     #  render 'new'
     end
   end
