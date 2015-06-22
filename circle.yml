@@ -3,3 +3,7 @@
 machine:
     environment:
         CODECLIMATE_REPO_TOKEN: a6b6638a1f0149959c745d2ef11eca7a119562664b5581041286ff7d55165d58
+        
+test:
+  post:
+    - autoupdate.sh
