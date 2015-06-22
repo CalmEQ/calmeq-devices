@@ -23,10 +23,11 @@ class PiesControllerTest < ActionController::TestCase
   
   test "should create a device" do 
     assert_difference('Py.count') do
-      post :create, py: { id: "testid1" };
+      post :create, py: { identifier: "testid1" };
     end
     
-    assert_redirected_to py_path( assigns(:py) )
+    assert_response :success
+    assert_not_nil assigns(:py)
   end
 
   test "should show a new form" do
