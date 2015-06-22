@@ -6,11 +6,11 @@ machine:
         
 dependencies:
   post:
-    - bash ./install_gemnasium.sh
+    - bash ./test/install_gemnasium.sh
     
 test:
   post:
-    - bash ./autoupdate.sh
+    - bash ./test/autoupdate.sh
 
 
 #      if [ -n "${RUN_AUTOUPDATE_BUILD}" ]; then
