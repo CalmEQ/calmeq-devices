@@ -6,4 +6,4 @@ machine:
         
 test:
   post:
-    - autoupdate.sh
+    - bash ./autoupdate.sh
