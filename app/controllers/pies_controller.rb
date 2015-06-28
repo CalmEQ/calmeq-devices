@@ -1,6 +1,7 @@
 class PiesController < ApplicationController
   # this should be replaced with a proper token system for each device soon.
   # something like 
+
   skip_before_action :verify_authenticity_token
 #  skip_before_filter :verify_authenticity_token  
 
@@ -21,15 +22,18 @@ class PiesController < ApplicationController
   end
 
   def create
-    @py = Py.find_or_create_by(identifier: params[:identifier])
-#@py = Py.new(py_params)
-  
+    
+    # initialize_by doesn't save new record.  That is what we need because it gives
+    # us a chance to update fields other than identifier before saving it
+    # if @py.new_record?  can be used to determine if new record was created or not
+    @py = Py.find_or_initialize_by(identifier: py_params[:identifier])
+    @py.update(py_params)
+   
     if @py.save
       render plain: @py.id
       #redirect_to @py
     else
       render plain: 0
-    #  render 'new'
     end
   end
    
