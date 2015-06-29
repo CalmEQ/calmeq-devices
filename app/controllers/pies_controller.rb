@@ -29,12 +29,12 @@ class PiesController < ApplicationController
     @py = Py.find_or_initialize_by(identifier: py_params[:identifier])
     @py.update(py_params)
    
-    if @py.save
-      render plain: @py.id
-      #redirect_to @py
-    else
-      render plain: 0
+    respond_to do |format|
+      format.html {redirect_to @py}
+      format.xml {render xml: @py}
+      format.json {render json: @py}
     end
+
   end
    
   def update

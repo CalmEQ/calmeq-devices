@@ -14,7 +14,13 @@ class ReadingsController < ApplicationController
     @py = Py.find(params[:py_id])
     @newreading = @py.readings.create(reading_params)
     @newreading.py_id = @py.id
-    redirect_to py_reading_path(@py, @newreading)
+    
+    respond_to do |format|
+      format.html {redirect_to py_reading_path(@py, @newreading)}
+      format.xml {render xml: @newreading}
+      format.json {render json: @newreading}
+    end
+
   end
  
   private
