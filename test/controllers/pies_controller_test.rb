@@ -26,7 +26,7 @@ class PiesControllerTest < ActionController::TestCase
       post :create, py: { identifier: "testid1" };
     end
     
-    assert_response :success
+    assert_response 302
     assert_not_nil assigns(:py)
   end
 
