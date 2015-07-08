@@ -30,7 +30,7 @@ class PiesController < ApplicationController
     @py.update(py_params)
    
     respond_to do |format|
-      format.html {redirect_to @py}
+      format.html {redirect_to py_path(@py) }
       format.xml {render xml: @py}
       format.json {render json: @py}
     end
