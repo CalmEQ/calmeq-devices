@@ -76,3 +76,14 @@ gem 'capybara', group: [:development, :test]
 
 # ugg, that didnt work, nor seem very standard... moving to selenium
 gem 'selenium-webdriver'
+
+
+## realtime updates - http://mikeatlas.github.io/realtime-rails/
+# gem 'realtime'
+# use redis as a backend
+# gem 'redis'
+
+## try websocket to not need a seperate node.js backend
+gem 'websocket-rails'
+
+

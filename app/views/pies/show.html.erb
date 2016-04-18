@@ -9,8 +9,8 @@
                 height="200"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyADBrHDk2telNSBAdKCOTunANdjzQUbTYQ
-                &q=<%= @py.readings.nil? ? @py.readings.last.lat : "" %>,
-                <%= @py.readings.nil? ? @py.readings.last.lon : "" %>">
+                &q=<%= @py.readings.empty? ? "" : @py.readings.last.lat %>,
+                <%=    @py.readings.empty? ? "" : @py.readings.last.lon %>">
 </iframe>
 <br>
 <table class="table table-striped" id="reading table">

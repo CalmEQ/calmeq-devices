@@ -24,5 +24,6 @@ export GEMNASIUM_PROJECT_SLUG="CalmEQ/calmeq-devices"
 if [[ $CIRCLE_BRANCH =~ "gemnasium-auto-update" ]]; then 
   echo "skipping build"; 
 else
+  echo "running autoupdate"
   gemnasium autoupdate run;
 fi
